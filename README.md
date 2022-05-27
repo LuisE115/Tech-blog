@@ -1,5 +1,5 @@
 # TechBlog 
-Deployed App: [https://luise115.github.io/Tech-blog/](https://luise115.github.io/Tech-blog/)
+Deployed App: [https://salty-retreat-80969.herokuapp.com](https://salty-retreat-80969.herokuapp.com)
 ## ToC
 - [Description](#description)
 - [Features](#features)
