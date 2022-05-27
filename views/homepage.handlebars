@@ -1,0 +1,15 @@
+<div class="hpcontainer">
+    {{#each blogs as |blog|}}
+        <div class="blogcontainer">
+            <a class="bloganchor" href="/blog/{{blog.id}}">
+                <div class="blogheader">
+                    <h4>{{blog.title}}</h4>
+                    <p>Posted by {{blog.user.username}} on {{format_date blog.createdAt}}</p>
+                </div>
+                <div class="blogcontent">
+                    <p>{{blog.content}}</p>
+                </div>
+            </a>
+        </div>
+    {{/each}}
+</div>

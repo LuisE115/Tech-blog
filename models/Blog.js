@@ -19,9 +19,12 @@ Blog.init(
             type: DataTypes.TEXT,
             allowNull: false,
         },
-        createddate: {
-            type: DataTypes.DATEONLY,
-            allowNull: false,
+        user_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'user',
+                key: 'id'
+            }
         }
     },
     {

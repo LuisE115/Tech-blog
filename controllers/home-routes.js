@@ -1,5 +1,5 @@
-const router = require('express').Router();
 const { Blog, Comment, User } = require('../models');
+const router = require('express').Router();
 
 const withAuth = require('../utils/auth');
 
@@ -7,44 +7,45 @@ router.get('/', async (req, res) => {
     try {
         const dbBlogData = await Blog.findAll({
             attributes: [
-                'id',
-                'title',
-                'content',
-                'createddate'
+                "id",
+                "title",
+                "content",
+                "createdAt"
             ],
             include: [
                 {
                     model: User,
-                    attributes: [
-                        'username'
-                    ]
+                    attributes: ["username"]
                 }
             ]
-        });
+        })
 
         const blogs = dbBlogData.map((blog) =>
             blog.get({ plain: true })
         );
 
         res.render('homepage', {
-
             blogs,
             loggedIn: req.session.loggedIn,
         });
     } catch (err) {
         console.log(err);
         res.status(500).json(err);
+        return;
     }
 });
 
-router.get('/blog/:id', withAuth, async (req, res) => {
+router.get('/blog/:id', async (req, res) => {
     try {
-        const dbBlogData = await Blog.findByPK(req.params.id, {
+        const dbBlogData = await Blog.findOne({
+            where: {
+                id: req.params.id
+            },
             attributes: [
                 'id',
                 'title',
                 'content',
-                'createddate'
+                "createdAt"
             ],
             include: [
                 {
@@ -59,9 +60,7 @@ router.get('/blog/:id', withAuth, async (req, res) => {
                         model: User,
                         attributes: ['username']
                     }
-                }
-            ],
-            include: [
+                },
                 {
                     model: User,
                     attributes: [
@@ -72,10 +71,12 @@ router.get('/blog/:id', withAuth, async (req, res) => {
         });
 
         const blog = dbBlogData.get({ plain: true });
-        res.render('blog', { blog, loggedIn: req.session.loggedIn });
+        // res.status(200).json(dbBlogData);
+        res.render('single-blog', { blog, loggedIn: req.session.loggedIn });
     } catch (err) {
         console.log(err);
         res.status(500).json(err);
+        return;
     }
 });
 
@@ -86,6 +87,7 @@ router.get('/login', (req, res) => {
     }
   
     res.render('login');
+    console.log(req.session);
   });
 
-  module. exports = router;
+  module.exports = router;

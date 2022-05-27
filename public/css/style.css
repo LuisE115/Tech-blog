@@ -1,0 +1,93 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: rgb(217,234,211);
+}
+
+a {
+    text-decoration: none;
+}
+
+/* main css */
+header {
+    background: rgb(35,16,16);
+    height: fit-content;
+    padding-bottom: 0.5rem;
+}
+
+.headernav {
+    display: flex;
+    /* padding: 0.5rem; */
+    font-size: 1.3em;
+}
+
+.headernav a, #ogoutbut {
+    color: rgb(217,234,211);
+    margin: 2% 2% 2%;
+}
+
+.headertext {
+    background: rgb(217,234,211);
+    width: fit-content;
+    padding: 0 1%;
+    margin-left: 5%;
+    border-radius: 5%;
+    font-size: 1.5em;
+    box-shadow: 5px 5px grey;
+}
+
+/* login css */
+.forms {
+    padding: 1rem;
+    margin: 1rem;
+    border: 3px solid rgb(35,16,16);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.login {
+    border: 3px solid rgb(35,16,16);
+    width: 50%;
+}
+
+.login h2 {
+    color: rgb(217,234,211);
+    text-align: center;
+    background: rgb(35,16,16);
+}
+
+.loginform, .signupform {
+    padding: 1rem;
+}
+
+.loginbutton {
+    background: rgb(35,16,16);
+    color: rgb(217,234,211);
+}
+
+#logout {
+    border: none;
+    background: rgb(35,16,16);
+    color: rgb(217,234,211);
+    font-size: 1em;
+}
+
+.blogcontainer {
+    border: 3px solid rgb(35,16,16);
+
+    margin: 1rem;
+}
+
+.blogheader {
+    display: flex;
+    justify-content: space-between;
+    color: rgb(217,234,211);
+    background: rgb(35,16,16);
+    height: 2rem;
+    padding: 0.5rem;
+}

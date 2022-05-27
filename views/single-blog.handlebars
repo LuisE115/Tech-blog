@@ -1,0 +1,33 @@
+        <div class="blogcontainer">
+            <div class="blogheader">
+                <h4>{{blog.title}}</h4>
+                <p>Posted by {{blog.user.username}} on {{blog.created_at}}</p>
+            </div>
+            <div class="blogcontent">
+                <p>{{blog.content}}</p>
+            </div>
+        </div>
+        <div class="blogcontainer">
+            {{#if loggedIn}}
+            <div>
+                <div class="blogheader"><h4>Add a new comment...</h4></div>
+                <form class="commentform">
+                    <textarea class="commentinput" name="comment_text" id="inputcomment"></textarea>
+                    <button class="commentbutton" type="submit">Submit!</button>
+                </form>
+            </div>
+            {{/if}}
+            <div class="comments">
+                {{#each blog.comments}}
+                <div class="blogheader">
+                    <h4>{{this.user.username}}</h4>
+                </div>
+                <div class="blogcontent">
+                    <p>{{this.comment}}</p>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+
+
+<script src="/js/add-comment.js"></script>

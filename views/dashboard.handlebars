@@ -1,0 +1,31 @@
+<div class="hpcontainer">
+    {{#each blogs as |blog|}}
+        <div class="blogcontainer">
+            <div class="blogheader">
+                <h4>{{blog.title}}</h4>
+                <p>Delete this post: <button class="removeblog">Remove</button></p>
+            </div>
+            <div class="blogcontent">
+                <p>{{blog.content}}</p>
+            </div>
+        </div>
+    {{/each}}
+    <div class="blogcontainer">
+        <div class="blogheader">
+            <h2>Create a new post!</h2>
+        </div>
+        <form class="blogform">
+            <div>
+                <h2>Title:</h2>
+                <textarea class="bloginput" name="title" id="inputblogt"></textarea>
+            </div>
+            <div>
+                <h2>Content:</h2>
+                <textarea class="bloginput" name="content" id="inputblogc"></textarea>
+            </div>
+            <button class="dashboardbutton" type="submit">Submit!</button>
+        </form>
+    </div>
+</div>
+
+<script src="/js/dashboard.js"></script>
